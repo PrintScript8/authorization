@@ -31,8 +31,6 @@ jobs:
       is_image: true
     secrets: inherit
 
-env:
-  AUTH0_SECRET_KEY: ${{ secrets.AUTH0_SECRET_KEY }}
 
 permissions:
   packages: write
