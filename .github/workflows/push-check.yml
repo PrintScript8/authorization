@@ -10,7 +10,7 @@ jobs:
   verify_valid:
     name: Verify valid image
     uses: PrintScript8/ingsis-library/.github/workflows/on-pull-request.yml@main
-    env:
+    environment:
       - AUTH0_SECRET_KEY: ${{ secrets.AUTH0_SECRET_KEY }}
 
   publish_docker:
