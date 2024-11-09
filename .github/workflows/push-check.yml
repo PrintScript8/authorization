@@ -11,8 +11,6 @@ jobs:
     name: Verify valid image
     uses: PrintScript8/ingsis-library/.github/workflows/on-pull-request.yml@main
     secrets: inherit
-    environment:
-      AUTH0_SECRET_KEY: ${{ secrets.AUTH0_SECRET_KEY }}
 
   publish_docker:
     name: Publish Docker image
@@ -31,6 +29,9 @@ jobs:
       is_dev: ${{ github.ref == 'refs/heads/dev' }}
       is_image: true
     secrets: inherit
+
+env:
+  AUTH0_SECRET_KEY: ${{ secrets.AUTH0_SECRET_KEY }}
 
 permissions:
   packages: write
