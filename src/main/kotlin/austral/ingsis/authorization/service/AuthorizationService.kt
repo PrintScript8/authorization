@@ -11,9 +11,12 @@ import org.springframework.stereotype.Service
 @Service
 class AuthorizationService {
     private val dotenv = dotenv()
-    private val secretKey = System.getenv("AUTH0_SECRET_KEY") ?: dotenv["AUTH0_SECRET_KEY"] // Your HS256 secret key
-    ?: throw IllegalStateException("AUTH0_SECRET_KEY is not set")
-    private val issuer = "https://dev-5zdc2llcm7omxrr3.us.auth0.com/" // Replace with your Auth0 issuer if different
+    private val secretKey = System.getenv("AUTH0_SECRET_KEY") ?: dotenv["AUTH0_SECRET_KEY"]
+    private val issuer = "https://dev-5zdc2llcm7omxrr3.us.auth0.com/"
+
+    init {
+        check(secretKey != null) { "AUTH0_SECRET_KEY is not set" }
+    }
 
     private val algorithm = Algorithm.HMAC256(secretKey)
     private val verifier: JWTVerifier =
@@ -23,11 +26,10 @@ class AuthorizationService {
 
     fun validateAuth0Token(token: String): String? {
         return try {
-            val decodedJWT: DecodedJWT = verifier.verify(token) // Verifies token's signature and issuer
-            val userId = decodedJWT.subject // Extracts the user ID from `sub` claim
+            val decodedJWT: DecodedJWT = verifier.verify(token)
+            val userId = decodedJWT.subject
             userId
         } catch (ex: JWTVerificationException) {
-            // Token is invalid (signature, expired, or malformed)
             println("Invalid token: ${ex.message}")
             null
         }
