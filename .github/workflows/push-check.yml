@@ -25,6 +25,9 @@ jobs:
     with:
       service_name: ${{ github.ref == 'refs/heads/main' && 'authorization' || 'authorization-dev' }}
       port: "8086"
+      is_dev: ${{ github.ref == 'refs/heads/dev' }}
+      is_image: true
+    secrets: inherit
 
 permissions:
   packages: write
