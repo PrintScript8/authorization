@@ -10,7 +10,8 @@ import org.springframework.stereotype.Service
 
 @Service
 class AuthorizationService {
-    private val secretKey = dotenv()["AUTH0_SECRET_KEY"] // Your HS256 secret key
+    private val dotenv = dotenv()
+    private val secretKey = System.getenv("AUTH0_SECRET_KEY") ?: dotenv["AUTH0_SECRET_KEY"] // Your HS256 secret key
     private val issuer = "https://dev-5zdc2llcm7omxrr3.us.auth0.com/" // Replace with your Auth0 issuer if different
 
     private val algorithm = Algorithm.HMAC256(secretKey)
