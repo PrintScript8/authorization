@@ -12,7 +12,6 @@ import org.springframework.http.ResponseEntity
 
 @SpringBootTest
 class AuthorizationControllerTest {
-
     companion object {
         @BeforeAll
         @JvmStatic

@@ -13,7 +13,6 @@ import org.springframework.boot.test.context.SpringBootTest
 @SpringBootTest
 @ExtendWith(MockitoExtension::class)
 class AuthorizationServiceTests {
-
     companion object {
         @BeforeAll
         @JvmStatic
