@@ -8,6 +8,8 @@ import org.mockito.junit.jupiter.MockitoExtension
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.context.SpringBootTest
 
+// THIS TESTS CAN FAIL IF THE TOKEN IN THE EXAMPLE EXPIRES!!!!!!!!
+
 @SpringBootTest
 @ExtendWith(MockitoExtension::class)
 class AuthorizationServiceTests {
