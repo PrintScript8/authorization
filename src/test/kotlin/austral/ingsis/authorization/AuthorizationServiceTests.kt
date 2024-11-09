@@ -1,7 +1,9 @@
 package austral.ingsis.authorization
 
 import austral.ingsis.authorization.service.AuthorizationService
+import io.github.cdimascio.dotenv.dotenv
 import org.junit.jupiter.api.Assertions.assertTrue
+import org.junit.jupiter.api.BeforeAll
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.extension.ExtendWith
 import org.mockito.junit.jupiter.MockitoExtension
@@ -11,6 +13,16 @@ import org.springframework.boot.test.context.SpringBootTest
 @SpringBootTest
 @ExtendWith(MockitoExtension::class)
 class AuthorizationServiceTests {
+
+    companion object {
+        @BeforeAll
+        @JvmStatic
+        fun setup() {
+            val dotenv = dotenv()
+            System.setProperty("AUTH0_SECRET_KEY", dotenv["AUTH0_SECRET_KEY"])
+        }
+    }
+
     @Autowired
     private lateinit var authorizationService: AuthorizationService
 

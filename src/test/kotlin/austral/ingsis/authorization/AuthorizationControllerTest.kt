@@ -1,7 +1,9 @@
 package austral.ingsis.authorization
 
 import austral.ingsis.authorization.controller.AuthorizationController
+import io.github.cdimascio.dotenv.dotenv
 import org.junit.jupiter.api.Assertions.assertEquals
+import org.junit.jupiter.api.BeforeAll
 import org.junit.jupiter.api.Test
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.context.SpringBootTest
@@ -10,6 +12,16 @@ import org.springframework.http.ResponseEntity
 
 @SpringBootTest
 class AuthorizationControllerTest {
+
+    companion object {
+        @BeforeAll
+        @JvmStatic
+        fun setup() {
+            val dotenv = dotenv()
+            System.setProperty("AUTH0_SECRET_KEY", dotenv["AUTH0_SECRET_KEY"])
+        }
+    }
+
     @Autowired
     private lateinit var authorizationController: AuthorizationController
 
