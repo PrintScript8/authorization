@@ -13,14 +13,6 @@ import org.springframework.boot.test.context.SpringBootTest
 @SpringBootTest
 @ExtendWith(MockitoExtension::class)
 class AuthorizationServiceTests {
-    companion object {
-        @BeforeAll
-        @JvmStatic
-        fun setup() {
-            val dotenv = dotenv()
-            System.setProperty("AUTH0_SECRET_KEY", dotenv["AUTH0_SECRET_KEY"])
-        }
-    }
 
     @Autowired
     private lateinit var authorizationService: AuthorizationService
@@ -29,11 +21,12 @@ class AuthorizationServiceTests {
     fun `validateAuth0Token should return userId for valid token`() {
         val id: String? =
             authorizationService.validateAuth0Token(
-                "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJodHRwczovL2Rldi01emRjMmxsY203b214cnIzL" +
-                    "nVzLmF1dGgwLmNvbS8iLCJzdWIiOiJhdXRoMHw2NzBiZTE3MzRhNTNiNDQzN2NkZTg4NmIiLCJhdW" +
-                    "QiOlsiaHR0cHM6Ly9TbmlwcGV0U2VyY2hlci1BUEkyLyJdLCJpYXQiOjE3MzEwODg0MDEsImV4cCI6MT" +
-                    "czMTE3NDgwMSwic2NvcGUiOiJvcGVuaWQgcHJvZmlsZSBlbWFpbCIsImF6cCI6IjFuRERlbjZWN1NqamdLR" +
-                    "E1EVnRmdmQ5OFNydUhMd3NtIn0.VbWZm_WpF4yV3b7F77ynm0b6hxIo9MjKcbC24Ghdn5Q",
+                "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJodHRwczovL2Rldi01emRjMmxsY20" +
+                        "3b214cnIzLnVzLmF1dGgwLmNvbS8iLCJzdWIiOiJhdXRoMHw2NzBiZTE3MzRhNTNiNDQzN2N" +
+                        "kZTg4NmIiLCJhdWQiOlsiaHR0cHM6Ly9TbmlwcGV0U2VyY2hlci1BUEkyLyJdLCJpYXQiOjE3Mz" +
+                        "ExNzk2MjcsImV4cCI6MTczMTI2NjAyNywic2NvcGUiOiJvcGVuaWQgcHJvZmlsZSBlbWFpbCIsImF" +
+                        "6cCI6IjFuRERlbjZWN1NqamdLRE1EVnRmdmQ5OFNydUhMd3NtIn0.sSZNuDS-EZzjR_jH31o_bdoV6Sb" +
+                        "DULxpoZkW4WzUAUI",
             )
         assertTrue(id != null)
     }
@@ -42,10 +35,11 @@ class AuthorizationServiceTests {
     fun `validateAuth0Token should return null for invalid token`() {
         val id: String? =
             authorizationService.validateAuth0Token(
-                "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpclolxdvbS8iLCJzdWIiOiJhdXRoMHw2NzBiZTE3MzRhNTN" +
-                    "iNDQzN2NkZTg4NmIiLCJhdWQiOlsiaHR0cHM6Ly9TbmlwcGV0U2VyY2hlci1BUEkyLyJdLCJpYXQiOjE3MzE" +
-                    "wODg0MDEsImV4cCI6MTczMTE3NDgwMSwic2NvcGUiOiJvcGVuaWQgcHJvZmlsZSBlbWFpbCIsImF6cCI6IjF" +
-                    "uRERlbjZWN1NqamdLRE1EVnRmdmQ5OFNydUhMd3NtIn0.VbWZm_WpF4yV3b7F77ynm0b6hxIo9MjKcbC24Ghdn5Q",
+                "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJodHRwczovL2Rldi01emRjMmxsY203b214cn" +
+                        "IzLnVzLmF1dGgwLmNvbS8iLCJzdWIiOiJhdXRoMHw2NzBiZTE3MzRhNTNiNDQzN2NkZTg4NmIiLCJhdWQiOls" +
+                        "iaHR0cHM6Ly9TbmlwcGV0U2VyY2hlcigedagedizk2MjcsImV4cCI6MTczMTI2NjA" +
+                        "yNywic2NvcGUiOiJvcGVuaWQgcHJvZmlsZSBlbWFpbCIsImF6cCI6IjFuRERlbjZWN1NqamdLRE1EVnRmdm" +
+                        "Q5OFNydUhMd3NtIn0.sSZNuDS-frikinfraken",
             )
         assertTrue(id == null)
     }
