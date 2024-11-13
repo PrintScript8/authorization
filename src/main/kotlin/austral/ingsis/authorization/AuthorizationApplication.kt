@@ -8,6 +8,5 @@ import org.springframework.boot.runApplication
 class AuthorizationApplication
 
 fun main(args: Array<String>) {
-    val dotenv = dotenv()
     runApplication<AuthorizationApplication>(args.toString())
 }
