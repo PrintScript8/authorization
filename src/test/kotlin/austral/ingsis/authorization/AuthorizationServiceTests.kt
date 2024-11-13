@@ -20,11 +20,11 @@ class AuthorizationServiceTests {
     fun `validateAuth0Token should return userId for valid token`() {
         val id: String? =
             authorizationService.validateAuth0Token(
-                "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJodHRwczovL2Rldi01emRjMmxsY203b214cnIzLnVzL" +
-                    "mF1dGgwLmNvbS8iLCJzdWIiOiJhdXRoMHw2NzBiZTE3MzRhNTNiNDQzN2NkZTg4NmIiLCJhdWQiOlsiaHR0cHM6L" +
-                    "y9TbmlwcGV0U2VyY2hlci1BUEkyLyJdLCJpYXQiOjE3MzEzMDY2MjQsImV4cCI6MTczMTM5MzAyNCwic2NvcGUiO" +
-                    "iJvcGVuaWQgcHJvZmlsZSBlbWFpbCIsImF6cCI6IjFuRERlbjZWN1NqamdLRE1EVnRmdmQ5OFNydUhMd3NtIn0.2C" +
-                    "nlNjhLpHXV5JJAgWDp97vuYsuEBwpnJBwCgSPQurk",
+                "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJodHRwczovL2Rldi01emRjMmxsY203b214cnIzL" +
+                        "nVzLmF1dGgwLmNvbS8iLCJzdWIiOiJhdXRoMHw2NzBiZTE3MzRhNTNiNDQzN2NkZTg4NmIiLCJhdWQiOlsia" +
+                        "HR0cHM6Ly9TbmlwcGV0U2VyY2hlci1BUEkyLyJdLCJpYXQiOjE3MzE1MDk0MDAsImV4cCI6MTczMTU5NTgwMC" +
+                        "wic2NvcGUiOiJvcGVuaWQgcHJvZmlsZSBlbWFpbCIsImF6cCI6IjFuRERlbjZWN1NqamdLRE1EVnRmdmQ5OFN" +
+                        "ydUhMd3NtIn0.FkOSxGFzGz3N71wLQ40bH7_IWCwWF6JaUl98aXFxpoU",
             )
         assertTrue(id != null)
     }
