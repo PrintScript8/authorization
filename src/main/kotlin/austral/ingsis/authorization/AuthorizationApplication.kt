@@ -1,6 +1,5 @@
 package austral.ingsis.authorization
 
-import io.github.cdimascio.dotenv.dotenv
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
 
