@@ -18,11 +18,14 @@ class AuthorizationControllerTest {
     @Test
     fun `auth0Authorization should return valid response for valid token`() {
         val validToken =
-            "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJodHRwczovL2Rldi01emRjMmxsY203b214cnIzLnVzLmF1dGgwLm" +
-                "NvbS8iLCJzdWIiOiJhdXRoMHw2NzBiZTE3MzRhNTNiNDQzN2NkZTg4NmIiLCJhdWQiOlsiaHR0cHM6Ly9TbmlwcGV0" +
-                "U2VyY2hlci1BUEkyLyJdLCJpYXQiOjE3MzE1MDk0MDAsImV4cCI6MTczMTU5NTgwMCwic2NvcGUiOiJvcGVuaWQgc" +
-                "HJvZmlsZSBlbWFpbCIsImF6cCI6IjFuRERlbjZWN1NqamdLRE1EVnRmdmQ5OFNydUhMd3NtIn0.FkOSxGFzGz3N71wL" +
-                "Q40bH7_IWCwWF6JaUl98aXFxpoU"
+            "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJ" +
+                    "odHRwczovL2Rldi01emRjMmxsY203b214cnIzLnVz" +
+                    "LmF1dGgwLmNvbS8iLCJzdWIiOiJhdXRoMHw2NzBiZTE" +
+                    "3MzRhNTNiNDQzN2NkZTg4NmIiLCJhdWQiOlsiaHR0cHM6L" +
+                    "y9TbmlwcGV0U2VyY2hlci1BUEkyLyJdLCJpYXQiOjE3MzE2MDQ" +
+                    "4NTMsImV4cCI6MTczMTY5MTI1Mywic2NvcGUiOiJvcGVuaWQgcH" +
+                    "JvZmlsZSBlbWFpbCIsImF6cCI6IjFuRERlbjZWN1NqamdLRE1EVn" +
+                    "RmdmQ5OFNydUhMd3NtIn0.HtIKaXLNlr_6Wgfmoa6yMrJf-NHS-6NagXqWkj-vyvA"
 
         val response: ResponseEntity<Map<String, Any?>> = authorizationController.auth0Authorization(validToken)
 
