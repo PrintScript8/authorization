@@ -21,13 +21,13 @@ class AuthorizationServiceTests {
         val id: String? =
             authorizationService.validateAuth0Token(
                 "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJ" +
-                        "odHRwczovL2Rldi01emRjMmxsY203b214cnIzLnVz" +
-                        "LmF1dGgwLmNvbS8iLCJzdWIiOiJhdXRoMHw2NzBiZTE" +
-                        "3MzRhNTNiNDQzN2NkZTg4NmIiLCJhdWQiOlsiaHR0cHM6L" +
-                        "y9TbmlwcGV0U2VyY2hlci1BUEkyLyJdLCJpYXQiOjE3MzE2MDQ" +
-                        "4NTMsImV4cCI6MTczMTY5MTI1Mywic2NvcGUiOiJvcGVuaWQgcH" +
-                        "JvZmlsZSBlbWFpbCIsImF6cCI6IjFuRERlbjZWN1NqamdLRE1EVn" +
-                        "RmdmQ5OFNydUhMd3NtIn0.HtIKaXLNlr_6Wgfmoa6yMrJf-NHS-6NagXqWkj-vyvA"
+                    "odHRwczovL2Rldi01emRjMmxsY203b214cnIzLnVz" +
+                    "LmF1dGgwLmNvbS8iLCJzdWIiOiJhdXRoMHw2NzBiZTE" +
+                    "3MzRhNTNiNDQzN2NkZTg4NmIiLCJhdWQiOlsiaHR0cHM6L" +
+                    "y9TbmlwcGV0U2VyY2hlci1BUEkyLyJdLCJpYXQiOjE3MzE2MDQ" +
+                    "4NTMsImV4cCI6MTczMTY5MTI1Mywic2NvcGUiOiJvcGVuaWQgcH" +
+                    "JvZmlsZSBlbWFpbCIsImF6cCI6IjFuRERlbjZWN1NqamdLRE1EVn" +
+                    "RmdmQ5OFNydUhMd3NtIn0.HtIKaXLNlr_6Wgfmoa6yMrJf-NHS-6NagXqWkj-vyvA",
             )
         assertTrue(id != null)
     }
