@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController
 
 @RestController
 @RequestMapping("/authorize")
-class AuthorizationController() {
+class AuthorizationController {
     private val authorizationService = AuthorizationService()
 
     @PostMapping("/auth0")
